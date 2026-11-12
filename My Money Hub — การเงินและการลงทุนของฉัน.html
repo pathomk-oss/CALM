@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My Money Hub — การเงินและการลงทุนของฉัน</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f1ea;--card:#fff;--ink:#16302a;--mute:#5d6f69;--line:#e1ddd2;--g:#17493f;--g2:#2f7d6b;--gold:#d99a2b;--bad:#c4422f;--ok:#2f8f5b;--on:#fff;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1b18;--card:#172623;--ink:#eaf1ee;--mute:#9db2ab;--line:#2a3d38;--g:#7fd1b9;--g2:#4fb39a;--gold:#f0b645;--bad:#ff8068;--ok:#6fd49b;--on:#0f1b18;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1b18;--card:#172623;--ink:#eaf1ee;--mute:#9db2ab;--line:#2a3d38;--g:#7fd1b9;--g2:#4fb39a;--gold:#f0b645;--bad:#ff8068;--ok:#6fd49b;--on:#0f1b18;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Noto Sans Thai","Sarabun",system-ui,sans-serif;padding-bottom:92px}
+.wrap{max-width:680px;margin:0 auto;padding:14px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:6px 2px 14px}
+.top b{font-size:19px;color:var(--g);font-weight:800}.top small{display:block;font-weight:400;color:var(--mute);font-size:13px}
+.ic{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:50%;width:40px;height:40px;font-size:17px;cursor:pointer}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:12px}
+.card h2{margin:0 0 10px;font-size:16px}
+.hero{background:var(--g);color:var(--on);border-radius:22px;padding:20px;margin-bottom:12px}
+.hero small{opacity:.8;display:block}.hero strong{font-size:34px;line-height:1.2;display:block}.hero p{margin:8px 0 0;font-size:14px;opacity:.92}
+.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.k{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px}.k span{font-size:12px;color:var(--mute);display:block}.k strong{font-size:17px}
+.bad{color:var(--bad)}.ok{color:var(--ok)}.mu{color:var(--mute);font-size:13px}
+.pil{display:grid;gap:8px}
+.p{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center}
+.p i{font-style:normal;font-weight:800;width:34px;height:34px;border-radius:10px;background:var(--g2);color:var(--on);display:grid;place-items:center}
+.p.e i{background:var(--line);color:var(--mute)}
+.bar{height:7px;background:var(--line);border-radius:5px;overflow:hidden;margin-top:4px}.bar div{height:100%;background:var(--gold)}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:12px}
+button.b,.seg button,.chip,a.lk{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:14px;padding:12px;font:inherit;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;display:block}
+.seg button.on,.chip.on{background:var(--g);color:var(--on);border-color:var(--g)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.chip{padding:8px 12px;font-weight:400;font-size:14px;border-radius:20px}
+input,select{width:100%;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:12px;padding:12px;font:inherit}
+input.big{font-size:30px;font-weight:800;text-align:center}
+.go{width:100%;background:var(--g2);color:var(--on);border:0;border-radius:14px;padding:15px;font:inherit;font-weight:800;font-size:17px;cursor:pointer;margin-top:10px}
+.li{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.li:last-child{border:0}.li button{border:0;background:none;color:var(--mute);font-size:20px;cursor:pointer}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:8px}.f2 label{font-size:12px;color:var(--mute)}
+.ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--g2) calc(var(--p)*1%),var(--line) 0);display:grid;place-items:center;margin:0 auto 10px}
+.ring div{width:92px;height:92px;border-radius:50%;background:var(--card);display:grid;place-items:center;font-weight:800;font-size:22px}
+nav{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);padding:6px 6px calc(8px + env(safe-area-inset-bottom,0px));z-index:5}
+nav button{border:0;background:none;color:var(--mute);font:inherit;font-size:11px;padding:6px 0;cursor:pointer;border-radius:12px}
+nav button span{display:block;font-size:21px;line-height:1.2}nav button.on{color:var(--g);font-weight:800;background:var(--bg)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top"><div><b>My Money Hub</b><small id="mo"></small></div><button class="ic" data-a="th" aria-label="สลับโหมดมืด/สว่าง">◐</button></div>
+<main id="v"></main>
+<p class="mu" style="text-align:center">ข้อมูลบันทึกอัตโนมัติ · เครื่องมือจดบันทึกส่วนตัว ไม่ใช่คำแนะนำการลงทุน</p>
+</div>
+<nav>
+<button data-a="tab" data-tab="h"><span>🏠</span>หน้าหลัก</button>
+<button data-a="tab" data-tab="l"><span>➕</span>บันทึก</button>
+<button data-a="tab" data-tab="p"><span>📈</span>พอร์ต</button>
+<button data-a="tab" data-tab="r"><span>🏢</span>อสังหา</button>
+<button data-a="tab" data-tab="g"><span>🎯</span>เป้าหมาย</button>
+</nav>
+<script>
+const $=s=>document.querySelector(s);
+const f=n=>Math.round(n).toLocaleString('th-TH');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const PIL=[['S','Safety','ปลอดภัย','เงินสำรอง · SGOV · เงินฝาก'],['C','Continuity','ต่อเนื่อง','รายได้เช่า · ประกัน · PVD'],['G','Growth','เติบโต','หุ้น · กองทุน'],['O','Opportunity','โอกาส','Crypto · ทอง · ต่างประเทศ'],['V','Vitality','พลังชีวิต','สุขภาพ · ความรู้ · ทักษะ']];
+const TY={i:'รายรับ',e:'รายจ่าย',v:'ออม/ลงทุน'};
+const CATS={i:['เงินเดือน','ค่าเช่า','ฟรีแลนซ์/บรรยาย','ปันผล/ดอกเบี้ย','อื่นๆ'],e:['ผ่อนบ้าน/ธุรกิจ','อาหาร','ลูก','เดินทาง','ประกัน','น้ำ-ไฟ','อื่นๆ'],v:PIL.map(p=>p[1])};
+const BUDGET_URL='https://claude.ai/artifact/TXq5bYowiF6yxxZfkm32q8';
+const def=()=>({tx:[],hold:[],props:[{n:'Elio',rent:14500,loan:0,ins:0,fee:917},{n:'Kave Seed',rent:13000,loan:9800,ins:700,fee:718},{n:'Kave Luminous',rent:11000,loan:7500,ins:400,fee:0}],goal:{target:100000,cur:0,mo:0}});
+let D=def(),tab='h',F={t:'e',c:'',a:'',n:''},uid=null,db=null,tm=null;
+const ym=()=>new Date().toISOString().slice(0,7);
+const sum=t=>D.tx.filter(x=>x.t===t&&x.d.startsWith(ym())).reduce((a,x)=>a+x.a,0);
+const pnet=p=>p.rent-p.loan-p.ins-p.fee;
+function pillars(){
+  const tot=PIL.map(p=>D.hold.filter(h=>h.p===p[0]).reduce((a,h)=>a+h.v,0)),all=tot.reduce((a,b)=>a+b,0);
+  return `<div class="pil">${PIL.map((p,i)=>`<div class="p ${tot[i]?'':'e'}"><i>${p[0]}</i><div><b>${p[1]}</b> <span class="mu">${p[2]}</span><div class="bar"><div style="width:${all?tot[i]/all*100:0}%"></div></div></div><div style="text-align:right">${tot[i]?'฿'+f(tot[i]):'<span class="mu">ยังว่าง</span>'}<div class="mu">${all&&tot[i]?(tot[i]/all*100).toFixed(0)+'%':''}</div></div></div>`).join('')}</div>`;
+}
+function home(){
+  const I=sum('i'),E=sum('e'),V=sum('v'),net=I-E-V,rate=I?V/I*100:0;
+  const pv=D.hold.reduce((a,h)=>a+h.v,0),rn=D.props.reduce((a,p)=>a+pnet(p),0);
+  let tip=!D.tx.length?'เริ่มจากกดแท็บ ➕ แล้วบันทึกรายการแรกของเดือนนี้':(!I?'ยังไม่มีรายรับเดือนนี้ — บันทึกรายรับเพื่อดูอัตราการออม':(rate<10?`ออมอีก ฿${f(I*.1-V)} เดือนนี้ เพื่อถึงเป้า 10% ของรายรับ`:'✓ เดือนนี้ออมได้ตามเป้า 10% แล้ว'));
+  if(I&&net<0)tip='⚠ เดือนนี้เงินสดติดลบ ลองทบทวนรายจ่ายที่เลื่อนได้';
+  const empty=PIL.filter(p=>!D.hold.some(h=>h.p===p[0])).map(p=>p[1]);
+  return `<div class="hero"><small>เงินสดคงเหลือเดือนนี้</small><strong class="${net<0?'':''}">${net<0?'−':''}฿${f(Math.abs(net))}</strong><p>${tip}</p></div>
+  <div class="row3"><div class="k"><span>อัตราออม</span><strong class="${rate>=10?'ok':(I?'bad':'')}">${I?rate.toFixed(1)+'%':'–'}</strong></div><div class="k"><span>พอร์ตลงทุน</span><strong>฿${f(pv)}</strong></div><div class="k"><span>เช่าสุทธิ/เดือน</span><strong class="${rn<0?'bad':''}">฿${f(rn)}</strong></div></div>
+  <div class="card"><h2>สมดุลการเงิน 5 ด้าน (SGOV)</h2>${pillars()}${empty.length&&D.hold.length?`<p class="mu" style="margin:10px 0 0">ด้านที่ยังว่าง: ${empty.join(', ')}</p>`:''}</div>
+  <a class="lk" href="${BUDGET_URL}" target="_blank" rel="noopener">📊 เปิดงบประมาณรายปี 2026–2028 →</a>`;
+}
+function log(){
+  const cs=CATS[F.t],cur=F.c||cs[0],list=D.tx.filter(x=>x.d.startsWith(ym())).sort((a,b)=>b.id-a.id);
+  return `<div class="seg">${Object.keys(TY).map(k=>`<button data-a="type" data-v="${k}" class="${F.t===k?'on':''}">${TY[k]}</button>`).join('')}</div>
+  <div class="card"><input id="amt" class="big" type="number" inputmode="decimal" placeholder="฿ 0" value="${F.a}" aria-label="จำนวนเงิน">
+  <div class="chips">${cs.map(c=>`<button class="chip ${c===cur?'on':''}" data-a="cat" data-v="${c}">${c}</button>`).join('')}</div>
+  <input id="note" placeholder="โน้ต (ไม่บังคับ)" value="${esc(F.n)}"><button class="go" data-a="add">บันทึก ${TY[F.t]}</button></div>
+  <div class="card"><h2>รายการเดือนนี้ (${list.length})</h2>${list.length?list.map(x=>`<div class="li"><div><b>${esc(x.c)}</b> <span class="mu">${esc(x.n)}</span><div class="mu">${x.d.slice(8)}/${x.d.slice(5,7)} · ${TY[x.t]}</div></div><div class="${x.t==='e'?'bad':'ok'}"><b>${x.t==='e'?'−':'+'}${f(x.a)}</b></div><button data-a="del" data-id="${x.id}" aria-label="ลบ">×</button></div>`).join(''):'<p class="mu">ยังไม่มีรายการ</p>'}</div>`;
+}
+function port(){
+  const pv=D.hold.reduce((a,h)=>a+h.v,0);
+  return `<div class="hero"><small>มูลค่าพอร์ตรวม</small><strong>฿${f(pv)}</strong></div><div class="card"><h2>สัดส่วนตาม SGOV</h2>${pillars()}</div>
+  <div class="card"><h2>เพิ่มสินทรัพย์</h2><input id="hn" placeholder="ชื่อ เช่น SGOV, RMF, BTC"><div class="f2" style="margin-top:8px"><select id="hp">${PIL.map(p=>`<option value="${p[0]}">${p[0]} · ${p[1]}</option>`).join('')}</select><input id="hv" type="number" inputmode="decimal" placeholder="มูลค่า ฿"></div><button class="go" data-a="hadd">เพิ่ม</button></div>
+  <div class="card"><h2>รายการถือครอง</h2>${D.hold.length?D.hold.map(h=>`<div class="li"><div style="flex:1"><b>${esc(h.n)}</b><div class="mu">${PIL.find(p=>p[0]===h.p)[1]}</div></div><input style="width:130px;text-align:right" type="number" inputmode="decimal" data-h="${h.id}" value="${h.v}" aria-label="มูลค่า ${esc(h.n)}"><button data-a="hdel" data-id="${h.id}" aria-label="ลบ">×</button></div>`).join(''):'<p class="mu">ยังไม่มีรายการ — เพิ่มสินทรัพย์แรกด้านบน</p>'}<p class="mu">แก้มูลค่าได้ทุกเมื่อ เพื่อปรับตามราคาล่าสุด</p></div>`;
+}
+function props(){
+  const t=D.props.reduce((a,p)=>a+pnet(p),0);
+  return `<div class="hero"><small>รายได้เช่าสุทธิรวม / เดือน</small><strong>฿${f(t)}</strong><p>ค่าเช่า − ผ่อน − ประกัน − ค่าส่วนกลาง</p></div>`+D.props.map((p,i)=>`<div class="card"><h2>${esc(p.n)} <span class="${pnet(p)<0?'bad':'ok'}" style="float:right">฿${f(pnet(p))}/เดือน</span></h2><div class="f2">${[['rent','ค่าเช่า'],['loan','ค่าผ่อน'],['ins','ประกัน'],['fee','ค่าส่วนกลาง (เฉลี่ย/เดือน)']].map(([k,l])=>`<div><label>${l}</label><input type="number" inputmode="decimal" data-p="${i}.${k}" value="${p[k]}"></div>`).join('')}</div></div>`).join('');
+}
+function goal(){
+  const g=D.goal,pct=g.target?Math.min(100,g.cur/g.target*100):0,left=Math.max(0,g.target-g.cur);
+  let eta=left===0?'✓ ถึงเป้าแล้ว':(g.mo>0?'ถึงเป้าราว '+new Date(new Date().setMonth(new Date().getMonth()+Math.ceil(left/g.mo))).toLocaleDateString('th-TH',{month:'long',year:'numeric'})+` (อีก ${Math.ceil(left/g.mo)} เดือน)`:'ใส่ยอดออมต่อเดือนเพื่อดูวันถึงเป้า');
+  const I=sum('i'),V=sum('v');
+  return `<div class="card"><h2>🛟 เงินสำรองฉุกเฉิน</h2><div class="ring" style="--p:${pct}"><div>${pct.toFixed(0)}%</div></div><p style="text-align:center;margin:0 0 12px"><b>${eta}</b></p>
+  <div class="f2"><div><label>เป้าหมาย ฿</label><input type="number" inputmode="decimal" data-g="target" value="${g.target}"></div><div><label>มีแล้ว ฿</label><input type="number" inputmode="decimal" data-g="cur" value="${g.cur}"></div></div><div style="margin-top:8px"><label class="mu">ออมเพิ่มต่อเดือน ฿</label><input type="number" inputmode="decimal" data-g="mo" value="${g.mo}"></div></div>
+  <div class="card"><h2>เป้าออม ≥ 10% ของรายรับ (เดือนนี้)</h2><div class="bar" style="height:12px"><div style="width:${I?Math.min(100,V/I*1000):0}%"></div></div><p class="mu" style="margin:8px 0 0">${I?`ออมแล้ว ${(V/I*100).toFixed(1)}% · เป้า ฿${f(I*.1)}`:'บันทึกรายรับเพื่อเริ่มติดตาม'}</p></div>`;
+}
+function R(){
+  $('#v').innerHTML={h:home,l:log,p:port,r:props,g:goal}[tab]();
+  document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.tab===tab));
+  $('#mo').textContent=new Date().toLocaleDateString('th-TH',{month:'long',year:'numeric'});
+}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,id=b.dataset.id;
+  if(a==='th'){const d=document.documentElement;d.setAttribute('data-theme',getComputedStyle(d).colorScheme==='dark'?'light':'dark');return}
+  if(a==='tab'){tab=b.dataset.tab;window.scrollTo(0,0)}
+  else if(a==='type'){F.t=b.dataset.v;F.c=''}
+  else if(a==='cat')F.c=b.dataset.v;
+  else if(a==='add'){const v=+F.a;if(!v){$('#amt').focus();return}D.tx.push({id:Date.now(),d:new Date().toISOString().slice(0,10),t:F.t,a:v,c:F.c||CATS[F.t][0],n:F.n});F.a='';F.n='';sv()}
+  else if(a==='del'){D.tx=D.tx.filter(x=>x.id!=id);sv()}
+  else if(a==='hadd'){const n=$('#hn').value.trim(),v=+$('#hv').value;if(!n||!v)return;D.hold.push({id:Date.now(),n,p:$('#hp').value,v});sv()}
+  else if(a==='hdel'){D.hold=D.hold.filter(x=>x.id!=id);sv()}
+  R();
+});
+document.addEventListener('input',e=>{if(e.target.id==='amt')F.a=e.target.value;if(e.target.id==='note')F.n=e.target.value});
+document.addEventListener('change',e=>{const t=e.target;
+  if(t.dataset.h)D.hold.find(x=>x.id==t.dataset.h).v=+t.value||0;
+  else if(t.dataset.p){const[i,k]=t.dataset.p.split('.');D.props[i][k]=+t.value||0}
+  else if(t.dataset.g)D.goal[t.dataset.g]=+t.value||0;
+  else return;sv();R()});
+// บันทึก/โหลด
+function sv(){clearTimeout(tm);tm=setTimeout(async()=>{const j=JSON.stringify(D);try{localStorage.setItem('mmh',j)}catch(e){}if(db&&uid){try{await db.doc(`data/users/${uid}/hub`).set({j})}catch(e){}}},500)}
+function parse(j){try{const o=JSON.parse(j),d=def();return{tx:o.tx||[],hold:o.hold||[],props:o.props||d.props,goal:{...d.goal,...(o.goal||{})}}}catch(e){return null}}
+try{const j=localStorage.getItem('mmh');if(j)D=parse(j)||D}catch(e){}
+R();
+(async()=>{try{if(!window.claude)return;const u=await claude.use('user');uid=u?await u.id():null;db=uid?await claude.use('db'):null;
+  if(db&&uid){const s=await db.doc(`data/users/${uid}/hub`).get();if(s.exists){const p=parse(s.data().j);if(p){D=p;R()}}else sv()}}catch(e){}})();
+</script>
+</body>
+</html>
